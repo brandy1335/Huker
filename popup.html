@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CodeSurfer Pro_</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div id="mainView" class="view-container">
+        <div class="header" style="display: flex; justify-content: space-between; align-items: center;">
+            <h1 class="glitch-text" data-text="CodeSurfer">./CodeSurfer <span class="badge">PRO_v2.0</span></h1>
+            <button id="openSettingsBtn" class="btn btn-text text-purple"
+                style="font-size: 1.2rem; padding: 0;">[⚙️]</button>
+        </div>
+
+        <!-- Removed config field here -->
+
+        <div class="tools-grid">
+            <button id="scanBtn" class="btn btn-outline">
+                [O] SCAN_WEB
+            </button>
+            <button id="selectBtn" class="btn btn-outline">
+                [+] SELECT_EL
+            </button>
+            <button id="historyBtn" class="btn btn-outline">
+                [H] HISTORY_LOG
+            </button>
+            <button id="libraryBtn" class="btn btn-outline text-purple">
+                [L] LIBRARIES
+            </button>
+        </div>
+
+        <div class="panel">
+            <label class="panel-label">>> AI_PROVIDER</label>
+            <select id="simpleProviderSelect" class="full-width mb-2 terminal-input">
+                <option value="huker_ai">HUKER AI (Self-Learning)</option>
+                <option value="openrouter">OpenRouter (GPT-3.5)</option>
+                <option value="openrouter_gpt4">OpenRouter (GPT-4)</option>
+                <option value="deepseek">Deepseek</option>
+                <option value="gemini">Gemini</option>
+                <option value="claude">Claude</option>
+                <option value="groq">Groq</option>
+                <option value="ai_cc">AI.CC</option>
+            </select>
+
+            <label class="panel-label">>> AI_PROMPT_TERMINAL</label>
+            <textarea id="aiQuery" class="terminal-input" placeholder="// Enter command to override DOM..."></textarea>
+
+            <div class="prompt-suggestions mt-2">
+                <div id="suggestionChips" style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 5px;"></div>
+                <button id="refreshSuggestionsBtn" class="btn btn-text"
+                    style="font-size: 0.65rem; padding: 2px 5px;">[?] RELOAD_SUGGESTIONS</button>
+            </div>
+
+            <button id="generateBtn" class="btn btn-primary full-width mt-2">
+                > EXECUTE_GENERATOR_
+            </button>
+            <button id="savePromptBtn" class="btn btn-purple full-width mt-2">
+                [L] SAVE PROMPT
+            </button>
+        </div>
+
+        <div class="panel">
+            <label class="panel-label">>> INJECTOR_SCRIPT.JS</label>
+            <textarea id="codeEditor" class="code-input" placeholder="// Ready for injection..."></textarea>
+        </div>
+
+        <div class="action-row">
+            <button id="executeBtn" class="btn btn-success flex-grow">
+                > RUN_PAYLOAD
+            </button>
+            <button id="saveLibraryBtn" class="btn btn-purple">
+                [L] SAVE
+            </button>
+            <button id="clearBtn" class="btn btn-danger">
+                X CLEAR
+            </button>
+        </div>
+    </div>
+
+    <div id="elementEditorView" class="hidden view-container">
+        <div class="header border-red">
+            <h2 class="text-red">TARGET_EDITOR_</h2>
+            <button id="backToMainBtn" class="btn btn-text">BACK</button>
+        </div>
+
+        <div class="status-bar error-bg">
+            <span id="currentSelector" class="blinking-cursor">Select target...</span>
+        </div>
+
+        <div class="panel border-red">
+            <label class="panel-label text-red">>> TARGET_MODIFICATION</label>
+            <textarea id="elementAiQuery" class="terminal-input"
+                placeholder="// E.g., Hide this element immediately."></textarea>
+            <button id="elementGenerateBtn" class="btn btn-red full-width mt-2">GENERATE_PATCH</button>
+        </div>
+
+        <label class="panel-label">>> MANUAL_OVERRIDE</label>
+        <textarea id="elementCodeEditor" class="code-input h-small"
+            placeholder="// el.style.display = 'none';"></textarea>
+
+        <div class="action-row">
+            <button id="elementExecuteBtn" class="btn btn-red flex-grow">DEPLOY_ON_TARGET</button>
+        </div>
+    </div>
+
+    <div id="agentView" class="hidden view-container">
+        <div class="header border-purple">
+            <div>
+                <h2 class="text-purple">🕵️ AGENT_MODE_</h2>
+                <p id="agentPageTitle" class="sub-text">Acquiring Target...</p>
+            </div>
+            <button id="backToMainFromAgentBtn" class="btn btn-text">DISCONNECT</button>
+        </div>
+
+        <div id="agentChatArea" class="terminal-window">
+            <div class="log-entry system-log">
+                <span class="prefix">SYS:</span> Connection established. Agent ready.
+            </div>
+        </div>
+
+        <div class="panel no-border">
+            <div class="input-group">
+                <span class="prompt-sign">$</span>
+                <textarea id="agentInput" class="terminal-line-input" rows="1" placeholder="Type command..."></textarea>
+            </div>
+            <button id="agentSendBtn" class="btn btn-purple full-width mt-2">
+                TRANSMIT_COMMAND
+            </button>
+        </div>
+
+        <div id="agentCodePreview" class="hidden panel mt-2">
+            <label class="panel-label text-purple">>> AGENT_SUGGESTED_PAYLOAD</label>
+            <textarea id="agentCodeEditor" class="code-input h-small"></textarea>
+            <button id="agentExecuteBtn" class="btn btn-purple full-width mt-2">EXECUTE_AGENT_CODE</button>
+        </div>
+    </div>
+
+    <div id="historyView" class="hidden view-container">
+        <div class="header">
+            <h2>LOGS_ARCHIVE_</h2>
+            <button id="backToMainFromHistoryBtn" class="btn btn-text">BACK</button>
+        </div>
+
+        <div class="flex-between mb-2">
+            <p id="historyCount" class="sub-text">Entries: 0</p>
+            <button id="deleteAllBtn" class="btn btn-danger-outline btn-small">
+                PURGE_LOGS
+            </button>
+        </div>
+
+        <div id="historyList" class="logs-container">
+            <p class="sub-text text-center">No logs found.</p>
+        </div>
+    </div>
+
+    <div id="libraryView" class="hidden view-container">
+        <div class="header border-purple">
+            <h2 class="text-purple">LIBRARIES_</h2>
+            <button id="backToMainFromLibraryBtn" class="btn btn-text">BACK</button>
+        </div>
+
+        <div class="tabs flex-between mb-2">
+            <button id="showPromptsBtn" class="btn btn-purple-outline flex-grow mr-1">PROMPTS</button>
+            <button id="showCodesBtn" class="btn btn-purple-outline flex-grow ml-1">CODES</button>
+        </div>
+
+        <div id="libraryList" class="logs-container h-large">
+            <p class="sub-text text-center">Library is empty.</p>
+        </div>
+    </div>
+
+    <p id="statusMessage" class="status-bar hidden"></p>
+
+    <script src="js/config.js"></script>
+    <script src="js/huker-ai.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/ai-engine.js"></script>
+    <script src="js/injector.js"></script>
+    <script src="js/element-selector.js"></script>
+    <script src="js/ai-agent.js"></script>
+    <script src="popup.js"></script>
+</body>
+
+</html>

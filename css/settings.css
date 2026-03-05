@@ -1,0 +1,121 @@
+/* css/settings.css - Custom styling for Vault UI */
+body {
+    background-color: #0d0d0d;
+    color: #00ff41;
+    font-family: 'Courier New', Courier, monospace;
+    width: 360px;
+    height: 550px;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.container-settings {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#headerSettings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #00ff41;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.settings-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.hacker-input, .hacker-select {
+    width: 100%;
+    background-color: #000;
+    border: 1px dashed #aa00ff;
+    color: #00ffff;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: monospace;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.hacker-input:focus, .hacker-select:focus {
+    outline: none;
+    border-color: #00ff41;
+    box-shadow: 0 0 5px #00ff41;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.vault-category {
+    border: 1px solid #1a1a1a;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    background: #111;
+}
+
+.vault-category h3 {
+    margin-top: 0;
+    color: #aa00ff;
+    font-size: 14px;
+    border-bottom: 1px dashed #aa00ff;
+    padding-bottom: 5px;
+}
+
+.sub-text {
+    font-size: 11px;
+    color: #888;
+    margin-top: -5px;
+    margin-bottom: 15px;
+}
+
+.warning-text {
+    color: #ff003c;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.vault-key {
+    color: #00ff41;
+}
+
+.vault-actions {
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+.status-msg {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.danger {
+    color: #ff003c;
+    border-color: #ff003c;
+}
+
+.danger:hover {
+    background-color: #ff003c;
+    color: #000;
+}
+
+.scrollable-vault {
+    overflow-y: auto;
+    max-height: 400px;
+    padding-right: 5px;
+}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-thumb { background: #00ff41; }

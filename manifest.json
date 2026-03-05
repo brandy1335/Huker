@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Huker Sufer Pro (Open Source)",
+  "version": "4.1",
+  "description": "Run custom JavaScript or generate code using AI on any webpage instantly.",
+  "icons": {
+    "16": "icons/icon_16.png",
+    "48": "icons/icon_48.png",
+    "128": "icons/icon_128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon_16.png",
+      "48": "icons/icon_48.png"
+    }
+  },
+  "permissions": [
+    "activeTab", 
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://openrouter.ai/*",
+    "https://api.groq.com/*",
+    "https://api.anthropic.com/*",
+    "https://api.deepseek.com/*",
+    "https://generativelanguage.googleapis.com/*",
+    "https://*.firebaseio.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

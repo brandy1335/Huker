@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huker Sufer Pro - Settings Vault</title>
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+    <div class="container container-settings">
+        <!-- HEADER -->
+        <header id="headerSettings">
+            <h1 class="logo">[HUK_SET]</h1>
+            <button id="closeSettingsBtn" class="pill-btn danger">[X] CLOSE</button>
+        </header>
+
+        <!-- SETUP / LOGIN SCREEN -->
+        <div id="authScreen" class="settings-section active">
+            <h2 id="authTitle">> VAULT LOCKED_</h2>
+            <p id="authDesc">Enter Master Password to decrypt your API keys.</p>
+            <div class="input-group">
+                <input type="password" id="masterPasswordInput" placeholder="Enter / Create secure password..." class="hacker-input text-center">
+            </div>
+            <button id="unlockVaultBtn" class="pill-btn generate-btn">> ACCESS_VAULT_</button>
+            <div id="authStatus" class="status-msg"></div>
+        </div>
+
+        <!-- VAULT SCREEN (Hidden by default) -->
+        <div id="vaultScreen" class="settings-section hidden">
+            <h2>> SECURITY VAULT DECRYPTED_</h2>
+            <p class="warning-text">// Warning: Never share these keys.</p>
+            
+            <div class="scrollable-vault">
+                <!-- BRAIN SETTINGS -->
+                <div class="vault-category">
+                    <h3>[1] HUKER AI STORAGE ENGINE</h3>
+                    <div class="input-group full-width">
+                        <label>Storage Mode:</label>
+                        <select id="storageModeSelect" class="hacker-select">
+                            <option value="local">🟢 Mode 1: Local Offline (Zero Config)</option>
+                            <option value="cloud">🔵 Mode 2: Firebase Cloud Only</option>
+                            <option value="hybrid">🟡 Mode 3: Hybrid Pro (Local + Firebase Sync)</option>
+                        </select>
+                    </div>
+                    <div class="input-group full-width" id="firebaseUrlGroup">
+                        <label>Firebase Realtime DB URL (For Cloud/Hybrid):</label>
+                        <input type="text" id="firebaseUrlInput" placeholder="https://your-project.firebaseio.com/memories.json" class="hacker-input">
+                    </div>
+                </div>
+
+                <!-- API KEYS -->
+                <div class="vault-category">
+                    <h3>[2] API PROVIDER KEYS</h3>
+                    <p class="sub-text">Leave blank to disable a provider.</p>
+
+                    <div class="input-group full-width">
+                        <label>Groq API Key (CRITICAL FOR SEMANTIC HASHING):</label>
+                        <input type="password" id="key_groq" placeholder="gsk_..." class="hacker-input vault-key">
+                    </div>
+                    <div class="input-group full-width">
+                        <label>OpenRouter API Key:</label>
+                        <input type="password" id="key_openrouter" placeholder="sk-or-v1-..." class="hacker-input vault-key">
+                    </div>
+                    <div class="input-group full-width">
+                        <label>Gemini API Key:</label>
+                        <input type="password" id="key_gemini" placeholder="AIza..." class="hacker-input vault-key">
+                    </div>
+                    <div class="input-group full-width">
+                        <label>Claude (Anthropic) API Key:</label>
+                        <input type="password" id="key_claude" placeholder="sk-ant-..." class="hacker-input vault-key">
+                    </div>
+                    <div class="input-group full-width">
+                        <label>DeepSeek API Key:</label>
+                        <input type="password" id="key_deepseek" placeholder="sk-..." class="hacker-input vault-key">
+                    </div>
+                </div>
+            </div>
+
+            <div class="vault-actions">
+                <button id="saveVaultBtn" class="pill-btn generate-btn full-width">> ENCRYPT & SAVE CONFIG_</button>
+                <div id="vaultStatus" class="status-msg"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/settings.js"></script>
+</body>
+</html>

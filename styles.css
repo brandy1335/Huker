@@ -1,0 +1,419 @@
+/* Hacker Theme Variables */
+:root {
+    --bg-color: #0a0a0a;
+    /* Deep Black */
+    --panel-bg: #111111;
+    --text-main: #e0e0e0;
+    --text-muted: #666666;
+
+    --neon-green: #00ff41;
+    /* Classic Matrix Green */
+    --neon-purple: #bc13fe;
+    /* Cyberpunk Purple */
+    --neon-red: #ff003c;
+    /* Error Red */
+    --neon-blue: #00f3ff;
+    /* Tron Blue */
+
+    --font-mono: 'Courier New', 'Consolas', monospace;
+}
+
+/* Base Reset */
+body {
+    width: 24rem;
+    /* 384px */
+    padding: 1rem;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-mono);
+    margin: 0;
+    border: 1px solid #333;
+}
+
+/* Utilities */
+.hidden {
+    display: none !important;
+}
+
+.flex-grow {
+    flex: 1;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.mt-2 {
+    margin-top: 0.75rem;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.h-small {
+    height: 80px !important;
+}
+
+/* Headers & Text */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+h1,
+h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.badge {
+    font-size: 0.6rem;
+    background: var(--neon-green);
+    color: black;
+    padding: 2px 4px;
+    border-radius: 2px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.sub-text {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* Inputs & Textareas */
+textarea {
+    width: 100%;
+    background: #000;
+    color: var(--neon-green);
+    border: 1px solid #333;
+    padding: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    resize: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+textarea:focus {
+    border-color: var(--neon-green);
+    box-shadow: 0 0 5px rgba(0, 255, 65, 0.2);
+}
+
+select {
+    width: 100%;
+    background: #000;
+    color: var(--neon-green);
+    border: 1px solid #333;
+    padding: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    outline: none;
+    box-sizing: border-box;
+}
+
+select:focus {
+    border-color: var(--neon-green);
+    box-shadow: 0 0 5px rgba(0, 255, 65, 0.2);
+}
+
+.terminal-input {
+    height: 60px;
+}
+
+.code-input {
+    height: 120px;
+    color: var(--neon-blue);
+}
+
+.panel {
+    background: var(--panel-bg);
+    border: 1px solid #222;
+    padding: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.panel-label {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Buttons */
+.btn {
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 8px 12px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+.btn-outline {
+    border: 1px solid #444;
+    color: var(--text-main);
+}
+
+.btn-outline:hover {
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+    box-shadow: 0 0 8px rgba(0, 255, 65, 0.2);
+}
+
+.btn-primary {
+    background: var(--neon-green);
+    color: black;
+}
+
+.btn-primary:hover {
+    background: #00cc33;
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+.btn-success {
+    border: 1px solid var(--neon-green);
+    color: var(--neon-green);
+}
+
+.btn-success:hover {
+    background: rgba(0, 255, 65, 0.1);
+}
+
+.btn-danger {
+    border: 1px solid var(--neon-red);
+    color: var(--neon-red);
+}
+
+.btn-danger:hover {
+    background: var(--neon-red);
+    color: white;
+}
+
+.btn-danger-outline {
+    border: 1px solid var(--neon-red);
+    color: var(--neon-red);
+    background: transparent;
+}
+
+.btn-danger-outline:hover {
+    background: var(--neon-red);
+    color: white;
+}
+
+.btn-small {
+    padding: 4px 8px;
+    font-size: 0.6rem;
+}
+
+.btn-text {
+    color: var(--text-muted);
+}
+
+.btn-text:hover {
+    color: var(--text-main);
+    text-decoration: underline;
+}
+
+/* Grid Layouts */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.action-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Status Bar */
+.status-bar {
+    font-size: 0.75rem;
+    padding: 8px;
+    text-align: center;
+    margin-top: 10px;
+    border: 1px dashed #444;
+}
+
+.status-bar.success {
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+}
+
+.status-bar.error {
+    border-color: var(--neon-red);
+    color: var(--neon-red);
+}
+
+.status-bar.neutral {
+    border-color: var(--neon-purple);
+    color: var(--neon-purple);
+}
+
+/* --- Specific Views Styling --- */
+
+/* Agent View (Matrix/Purple Theme) */
+.border-purple {
+    border-color: var(--neon-purple) !important;
+}
+
+.text-purple {
+    color: var(--neon-purple) !important;
+}
+
+.terminal-window {
+    background: #050505;
+    border: 1px solid var(--neon-purple);
+    height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    font-size: 0.75rem;
+    margin-bottom: 10px;
+    color: #d1d5db;
+}
+
+.log-entry {
+    margin-bottom: 8px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 4px;
+}
+
+.prefix {
+    color: var(--neon-purple);
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.input-group {
+    display: flex;
+    align-items: flex-start;
+    background: #000;
+    border: 1px solid #333;
+}
+
+.prompt-sign {
+    padding: 8px;
+    color: var(--neon-purple);
+    font-weight: bold;
+}
+
+.terminal-line-input {
+    border: none;
+    height: 34px;
+    padding-top: 8px;
+}
+
+.terminal-line-input:focus {
+    border: none;
+    box-shadow: none;
+}
+
+.btn-purple {
+    border: 1px solid var(--neon-purple);
+    color: var(--neon-purple);
+}
+
+.btn-purple:hover {
+    background: var(--neon-purple);
+    color: white;
+    box-shadow: 0 0 10px var(--neon-purple);
+}
+
+/* Element Editor (Red/Warning Theme) */
+.border-red {
+    border-color: var(--neon-red) !important;
+}
+
+.text-red {
+    color: var(--neon-red) !important;
+}
+
+.btn-red {
+    background: var(--neon-red);
+    color: black;
+}
+
+.error-bg {
+    background: rgba(255, 0, 60, 0.1);
+    border: 1px solid var(--neon-red);
+    color: var(--neon-red);
+    margin-bottom: 10px;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-green);
+}
+
+/* Blinking Cursor Animation */
+.blinking-cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* History Logs */
+.logs-container {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.history-item {
+    border: 1px solid #333;
+    padding: 8px;
+    margin-bottom: 5px;
+    background: #0d0d0d;
+}
+
+.history-item:hover {
+    border-color: var(--text-muted);
+}
+
+.history-item-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: #555;
+    margin-bottom: 4px;
+}
+
+.history-item-code {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
